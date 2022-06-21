@@ -16,8 +16,8 @@ return new class extends Migration {
             //Product fields
             $table->id();
             $table->string('name',100);
-            $table->string('image');
             $table->text('description');
+            $table->string('image');
             $table->decimal('price', 8, 2);
             $table->enum('sizes', ['XS', 'S', 'M', 'L', 'XL']);
             $table->enum('status', ['standard', 'solded']);
