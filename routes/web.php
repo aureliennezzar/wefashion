@@ -1,21 +1,22 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+//ROUTES
 
-Route::get('/', function () {
-    return view('welcome');
+
+//Home route (returning all products)
+Route::get('/',[ProductController::class,'index'])->name('products.index');
+
+//Single product
+Route::get('/products/{id}', [ProductController::class,'show'])-> name('products.show');
+
+//CRUD routes
+Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function(){
+    Route::resource('products', '\App\Http\Controllers\Admin\ProductController');
 });
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
