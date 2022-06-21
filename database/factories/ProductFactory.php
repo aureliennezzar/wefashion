@@ -22,9 +22,7 @@ class ProductFactory extends Factory
             'description' => $this->faker->sentence(rand(1, 20), true),
             'image' => $this->faker->imageUrl(),
             'price' => (mt_rand(5 * 10, 5000 * 10) / 10),
-            'size' => $this->faker->randomElement(['XS', 'S', 'M', 'L', 'XL']),
             'status' => $this->faker->randomElement(['standard', 'solded']),
-            'gender' => $this->faker->randomElement(['homme', 'femme']),
             'published' => $this->faker->boolean(),
             'reference'=>$this->faker->regexify('[A-Za-z0-9]{16}')
         ];

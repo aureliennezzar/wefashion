@@ -25,16 +25,16 @@
         <input type="number" name="price"
                min="0" max="1000000" required value="{{ $product->price }}">
 
-        Taille:
-        <select name="size" required>
-            <?php
-            $sizes = ['XS', 'S', 'M', 'L', 'XL']
-            ?>
-            @foreach($sizes as $size)
-                <option
-                    value="{{ strtolower($size) }}" {{ strtolower($size) == strtolower($product->size) ? 'selected' : '' }}>{{ $size }}</option>
-            @endforeach
-        </select>
+{{--        Taille:--}}
+{{--        <select name="size" required>--}}
+{{--            <?php--}}
+{{--            $sizes = ['XS', 'S', 'M', 'L', 'XL']--}}
+{{--            ?>--}}
+{{--            @foreach($sizes as $size)--}}
+{{--                <option--}}
+{{--                    value="{{ strtolower($size) }}" {{ strtolower($size) == strtolower($product->size) ? 'selected' : '' }}>{{ $size }}</option>--}}
+{{--            @endforeach--}}
+{{--        </select>--}}
 
         Status:
         <select name="status" required>
@@ -47,16 +47,16 @@
             @endforeach
         </select>
 
-        Genre:
-        <select name="gender" required>
-            <?php
-            $genders = ['Homme', 'Femme']
-            ?>
-            @foreach($genders as $gender)
-                <option
-                    value="{{ strtolower($gender) }}" {{ strtolower($gender) == strtolower($product->gender) ? 'selected' : '' }}>{{ $gender }}</option>
-            @endforeach
-        </select>
+{{--        Genre:--}}
+{{--        <select name="gender" required>--}}
+{{--            <?php--}}
+{{--            $genders = ['Homme', 'Femme']--}}
+{{--            ?>--}}
+{{--            @foreach($genders as $gender)--}}
+{{--                <option--}}
+{{--                    value="{{ strtolower($gender) }}" {{ strtolower($gender) == strtolower($product->gender) ? 'selected' : '' }}>{{ $gender }}</option>--}}
+{{--            @endforeach--}}
+{{--        </select>--}}
 
         <fieldset>
             <legend>Visibilité :</legend>

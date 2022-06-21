@@ -22,17 +22,17 @@
         <input type="number" name="price"
                min="0" max="1000000" required>
 
-        Taille:
-        <select name="size" required>
-            <?php
-            $sizes = ['XS', 'S', 'M', 'L', 'XL']
-            ?>
-            <option value="">Choisir une taille</option>
-            @foreach($sizes as $size)
-                    <option value="{{ strtolower($size) }}">{{ $size }}</option>
+{{--        Taille:--}}
+{{--        <select name="size" required>--}}
+{{--            <?php--}}
+{{--            $sizes = ['XS', 'S', 'M', 'L', 'XL']--}}
+{{--            ?>--}}
+{{--            <option value="">Choisir une taille</option>--}}
+{{--            @foreach($sizes as $size)--}}
+{{--                    <option value="{{ strtolower($size) }}">{{ $size }}</option>--}}
 
-            @endforeach
-        </select>
+{{--            @endforeach--}}
+{{--        </select>--}}
 
         Status:
         <select name="status" required>
@@ -45,16 +45,16 @@
             @endforeach
         </select>
 
-        Genre:
-        <select name="gender" required>
-            <?php
-            $genders = ['Homme', 'Femme']
-            ?>
-            <option value="">Choisir une taille</option>
-            @foreach($genders as $gender)
-                <option value="{{ strtolower($gender) }}">{{ $gender }}</option>
-            @endforeach
-        </select>
+{{--        Genre:--}}
+{{--        <select name="gender" required>--}}
+{{--            <?php--}}
+{{--            $genders = ['Homme', 'Femme']--}}
+{{--            ?>--}}
+{{--            <option value="">Choisir une taille</option>--}}
+{{--            @foreach($genders as $gender)--}}
+{{--                <option value="{{ strtolower($gender) }}">{{ $gender }}</option>--}}
+{{--            @endforeach--}}
+{{--        </select>--}}
 
         <fieldset>
             <legend>Visibilité :</legend>

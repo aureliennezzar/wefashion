@@ -14,10 +14,9 @@ class Product extends Model
         'description',
         'image',
         'price',
-        'size',
         'status',
-        'gender',
         'published',
+        'category_id',
         'reference',
     ];
 }
