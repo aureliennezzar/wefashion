@@ -21,6 +21,7 @@ return new class extends Migration {
             $table->decimal('price', 8, 2);
             $table->enum('sizes', ['XS', 'S', 'M', 'L', 'XL']);
             $table->enum('status', ['standard', 'solded']);
+            $table->enum('gender', ['homme', 'femme']);
             $table->boolean('published')->default(false);;
             $table->string('reference',16);
             $table->timestamps();
