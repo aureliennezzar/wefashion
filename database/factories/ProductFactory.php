@@ -16,9 +16,10 @@ class ProductFactory extends Factory
      */
     public function definition()
     {
+        // Seting up factory with right fields
         return [
-            'name' => $this->faker->sentence(),
-            'description' => $this->faker->sentence(rand(1, 3), true),
+            'name' => $this->faker->sentence(rand(1, 3),true),
+            'description' => $this->faker->sentence(rand(1, 20), true),
             'image' => $this->faker->imageUrl(),
             'price' => (mt_rand(5 * 10, 5000 * 10) / 10),
             'sizes' => $this->faker->randomElement(['XS', 'S', 'M', 'L', 'XL']),
