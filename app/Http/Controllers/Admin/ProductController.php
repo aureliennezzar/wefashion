@@ -20,10 +20,27 @@ class ProductController extends Controller
         return view('admin.products.create');
     }
 
+    public function update(Request $request, Product $product)
+    {
+        $product->update($request->all());
+        return redirect()->route('admin.products.index');
+    }
+
+    public function edit(Product $product)
+    {
+        return view('admin.products.edit', compact('product'));
+    }
+
 
     public function store(Request $request)
     {
         Product::create(array_merge($request->all(), ['reference' => generateRandomString(16)]));
+        return redirect()->route('admin.products.index');
+    }
+
+    public function destroy(Product $product)
+    {
+        $product->delete();
         return redirect()->route('admin.products.index');
     }
 }
