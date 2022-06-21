@@ -1,6 +1,6 @@
 @extends('layouts/layout')
 @section('content')
-@foreach($products as $product)
+@forelse($products as $product)
     <div>
         <a href="{{route('products.show', ['id'=>$product->id])}}">
             <h3>
@@ -13,5 +13,8 @@
         </p>
     </div>
     <br><br>
-@endforeach
+@empty
+    <span>aucun produit encore !</span>
+@endforelse
+    {{ $products->links() }}
 @stop
