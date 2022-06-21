@@ -13,6 +13,9 @@ Route::get('/',[ProductController::class,'index'])->name('products.index');
 Route::get('/products/{id}', [ProductController::class,'show'])-> name('products.show');
 
 //CRUD routes
+
+//Prefix added to make sure the URI start with "admin"
+//Name added to make sure that we point to the right template
 Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function(){
     Route::resource('products', '\App\Http\Controllers\Admin\ProductController');
 });

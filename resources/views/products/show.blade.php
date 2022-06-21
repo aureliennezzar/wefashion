@@ -1,7 +1,5 @@
-<x-app-layout>
-    <x-slot name="header">
-        {{$product->name}}
-    </x-slot>
+@extends('layouts/layout')
+@section('content')
     <div>
         <h3>
             {{$product->name}}
@@ -11,4 +9,4 @@
             {{$product->description}}
         </p>
     </div>
-</x-app-layout>
+@stop
