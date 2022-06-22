@@ -38,6 +38,28 @@ class ProductController extends Controller
 //        Delete all sizes related to product
         DB::table('product_size')->where('product_id', $product->id)->delete();
 
+        //Retrieve categoryID  &  category
+        $categoryId = $request->all()['category_id'];
+        $category = DB::table('categories')->where('id', $categoryId)->first();
+
+        $filename = time() . '.' . $request->image->extension();
+        $path = $request->file('image')->storeAs(
+            $category->name,
+            $filename,
+            'public'
+        );
+        //        Delete picture related to product
+        DB::table('pictures')->where('product_id', $product->id)->delete();
+
+
+
+        //Create Picture
+        Picture::create(array(
+            'image' => $path,
+            'product_id' => $product->id
+        ));
+
+
         foreach ($sizes as $size){
             DB::table('product_size')->insert([
                 'product_id' => $product->id,
@@ -74,7 +96,7 @@ class ProductController extends Controller
         $entries = array_merge($request->all(), ['reference' => generateRandomString(16)]);
         unset($entries['sizes']);
 
-//        CREATE PRODUCT
+//        Create Product
         $product = Product::create($entries);
 
 
@@ -86,6 +108,7 @@ class ProductController extends Controller
             ]);
         }
 
+        //Create Picture
         Picture::create(array(
             'image' => $path,
             'product_id' => $product->id
