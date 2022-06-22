@@ -24,7 +24,7 @@ class ProductController extends Controller
     {
         $sizes = Size::all();
         $categories = Category::all();
-        return view('admin.products.create',compact('sizes','categories'));
+        return view('admin.products.create', compact('sizes', 'categories'));
     }
 
     public function update(Request $request, Product $product)
@@ -41,26 +41,27 @@ class ProductController extends Controller
         //Retrieve categoryID  &  category
         $categoryId = $request->all()['category_id'];
         $category = DB::table('categories')->where('id', $categoryId)->first();
+        if (!empty($request->image)) {
 
-        $filename = time() . '.' . $request->image->extension();
-        $path = $request->file('image')->storeAs(
-            $category->name,
-            $filename,
-            'public'
-        );
-        //        Delete picture related to product
-        DB::table('pictures')->where('product_id', $product->id)->delete();
-
-
-
-        //Create Picture
-        Picture::create(array(
-            'image' => $path,
-            'product_id' => $product->id
-        ));
+            $filename = time() . '.' . $request->image->extension();
+            $path = $request->file('image')->storeAs(
+                $category->name,
+                $filename,
+                'public'
+            );
+            //        Delete picture related to product
+            DB::table('pictures')->where('product_id', $product->id)->delete();
 
 
-        foreach ($sizes as $size){
+            //Create Picture
+            Picture::create(array(
+                'image' => $path,
+                'product_id' => $product->id
+            ));
+        }
+
+
+        foreach ($sizes as $size) {
             DB::table('product_size')->insert([
                 'product_id' => $product->id,
                 'size_id' => $size
@@ -75,7 +76,7 @@ class ProductController extends Controller
     {
         $sizes = Size::all();
         $categories = Category::all();
-        return view('admin.products.edit', compact('product','sizes','categories'));
+        return view('admin.products.edit', compact('product', 'sizes', 'categories'));
     }
 
 
@@ -101,7 +102,7 @@ class ProductController extends Controller
 
 
 //        Insert new sizes
-        foreach ($sizes as $size){
+        foreach ($sizes as $size) {
             DB::table('product_size')->insert([
                 'product_id' => $product->id,
                 'size_id' => $size

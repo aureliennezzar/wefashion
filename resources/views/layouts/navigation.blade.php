@@ -50,6 +50,10 @@
                             <x-dropdown-link :href="route('admin.products.index')">
                                 {{ __('Modifier les produits') }}
                             </x-dropdown-link>
+
+                            <x-dropdown-link :href="route('admin.categories.index')">
+                                {{ __('Modifier les catégories') }}
+                            </x-dropdown-link>
                         </form>
                     </x-slot>
 

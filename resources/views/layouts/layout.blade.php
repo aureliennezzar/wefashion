@@ -7,6 +7,20 @@
     <title>Laravel</title>
 </head>
 <body>
-    @yield('content')
+<nav>
+    <select class="categories" id="categories-select" onchange="this.options[this.selectedIndex].value && (window.location = '/categorie/' + this.options[this.selectedIndex].value);">
+        <option value="">Choisir une catégorie</option>
+        @foreach( \App\Models\Category::all() as $category)
+            {{$category->name}}
+            <option
+                value="{{$category->id}}" {{ (request()->is('categorie/'.$category->id)) ? 'selected' : '' }}>{{$category->name}}</option>
+        @endforeach
+    </select>
+
+    <a href="{{route('products.discount')}}">
+        {{ __('Soldes') }}
+    </a>
+</nav>
+@yield('content')
 </body>
 </html>
