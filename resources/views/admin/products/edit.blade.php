@@ -1,11 +1,11 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Ajouter un nouveau produit') }}
+            {{ __('Editer un nouveau produit') }}
         </h2>
     </x-slot>
 
-    <form method="POST" action="{{ route('admin.products.update',$product->id) }}">
+    <form class="product-form" method="POST" action="{{ route('admin.products.update',$product->id) }}">
         {{--        Define form method type--}}
         {{ method_field('PUT') }}
         {{--        Generate token field--}}
@@ -25,19 +25,40 @@
         <input type="number" name="price"
                min="0" max="1000000" required value="{{ $product->price }}">
 
-{{--        Taille:--}}
-{{--        <select name="size" required>--}}
-{{--            <?php--}}
-{{--            $sizes = ['XS', 'S', 'M', 'L', 'XL']--}}
-{{--            ?>--}}
-{{--            @foreach($sizes as $size)--}}
-{{--                <option--}}
-{{--                    value="{{ strtolower($size) }}" {{ strtolower($size) == strtolower($product->size) ? 'selected' : '' }}>{{ $size }}</option>--}}
-{{--            @endforeach--}}
-{{--        </select>--}}
+        {{--        Taille:--}}
+        {{--        <select name="size" required>--}}
+        {{--            <?php--}}
+        {{--            $sizes = ['XS', 'S', 'M', 'L', 'XL']--}}
+        {{--            ?>--}}
+        {{--            @foreach($sizes as $size)--}}
+        {{--                <option--}}
+        {{--                    value="{{ strtolower($size) }}" {{ strtolower($size) == strtolower($product->size) ? 'selected' : '' }}>{{ $size }}</option>--}}
+        {{--            @endforeach--}}
+        {{--        </select>--}}
+
+        Taille:
+        <fieldset>
+{{--            Retrieve sizes from collection --}}
+            @php
+                $productSizes = []
+            @endphp
+            @foreach($product->sizes as $size)
+                @php
+                    $productSizes[] = $size->name
+                @endphp
+            @endforeach
+
+
+            @foreach($sizes as $size)
+                <label for="{{ "checkbox".$size->id }}">{{$size->name}}</label>
+                <input id="{{ "checkbox".$size->id }}" class="size-checkbox" type="checkbox" name="sizes[]"
+                       value="{{ $size->id }}" {{ in_array($size->name,$productSizes) ? 'checked' : '' }}/>
+            @endforeach
+        </fieldset>
 
         Status:
-        <select name="status" required>
+        <select name="status" required="required">
+            <option value="">Choisir un status</option>
             <?php
             $status = ['Standard', 'Solded']
             ?>
@@ -47,16 +68,24 @@
             @endforeach
         </select>
 
-{{--        Genre:--}}
-{{--        <select name="gender" required>--}}
-{{--            <?php--}}
-{{--            $genders = ['Homme', 'Femme']--}}
-{{--            ?>--}}
-{{--            @foreach($genders as $gender)--}}
-{{--                <option--}}
-{{--                    value="{{ strtolower($gender) }}" {{ strtolower($gender) == strtolower($product->gender) ? 'selected' : '' }}>{{ $gender }}</option>--}}
-{{--            @endforeach--}}
-{{--        </select>--}}
+        Categorie:
+        <select name="category_id" required="required">
+            <option value="">Choisir une catégorie</option>
+            @foreach($categories as $category)
+                <option
+                    value="{{ $category->id}}" {{ $category->id == $product->category_id ? 'selected' : '' }}>{{ $category->name }}</option>
+            @endforeach
+        </select>
+        {{--        Genre:--}}
+        {{--        <select name="gender" required>--}}
+        {{--            <?php--}}
+        {{--            $genders = ['Homme', 'Femme']--}}
+        {{--            ?>--}}
+        {{--            @foreach($genders as $gender)--}}
+        {{--                <option--}}
+        {{--                    value="{{ strtolower($gender) }}" {{ strtolower($gender) == strtolower($product->gender) ? 'selected' : '' }}>{{ $gender }}</option>--}}
+        {{--            @endforeach--}}
+        {{--        </select>--}}
 
         <fieldset>
             <legend>Visibilité :</legend>
@@ -72,6 +101,6 @@
             </div>
         </fieldset>
 
-        <input style="cursor: pointer;color: blue;text-decoration: underline" type="submit" value="Enregistrer">
+        <input type="submit" class="submit-btn" value="Enregistrer"/>
     </form>
 </x-app-layout>

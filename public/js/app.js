@@ -5082,6 +5082,25 @@ __webpack_require__.r(__webpack_exports__);
 window.Alpine = alpinejs__WEBPACK_IMPORTED_MODULE_1__["default"];
 alpinejs__WEBPACK_IMPORTED_MODULE_1__["default"].start();
 
+function exist(query) {
+  var element = document.querySelector(query);
+  return typeof element != 'undefined' && element != null;
+}
+
+if (exist('.product-form')) {
+  // Check if at least one checkbox is checked
+  var submitBtn = document.querySelector('.product-form .submit-btn');
+  var form = document.querySelector('.product-form');
+  form.addEventListener('submit', function (e) {
+    var checked = document.querySelectorAll('.product-form .size-checkbox:checked').length;
+
+    if (!checked) {
+      alert("Il faut choisir au moins une taille");
+      e.preventDefault();
+    }
+  });
+}
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":

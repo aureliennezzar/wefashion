@@ -17,14 +17,13 @@ return new class extends Migration {
             $table->id();
             $table->string('name',100);
             $table->text('description');
-            $table->string('image')->default('https://picsum.photos/400/600');
+//            $table->string('image')->default('https://picsum.photos/400/600');
             $table->decimal('price', 8, 2);
             $table->enum('status', ['standard', 'solded']);
             $table->boolean('published')->default(false);
             $table->string('reference',16);
-            $table->unsignedBigInteger('category_id');
             $table->timestamps();
-            $table->foreign('category_id')->references('id')->on('categories')->cascadeOnDelete();
+            $table->foreignId('category_id')->constrained()->onDelete('cascade');
         });
     }
 

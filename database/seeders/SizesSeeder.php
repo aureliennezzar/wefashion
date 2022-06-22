@@ -3,10 +3,11 @@
 namespace Database\Seeders;
 
 use App\Models\Product;
+use App\Models\Size;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class DatabaseSeeder extends Seeder
+class SizesSeeder extends Seeder
 {
     /**
      * Seed the application's database.
@@ -15,10 +16,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call([
-            SizesSeeder::class,
-            CategoriesSeeder::class
-        ]);
-//      Product::factory()->count(50)->create();
+        $sizes = ['XS', 'S', 'M', 'L', 'XL'];
+
+        foreach ($sizes as $size) {
+            Size::create([
+                'name' => $size
+            ]);
+        }
+
     }
 }

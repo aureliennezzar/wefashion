@@ -12,11 +12,25 @@ class Product extends Model
     protected $fillable = [
         'name',
         'description',
-        'image',
+//        'image',
         'price',
         'status',
         'published',
-        'category_id',
         'reference',
+        'category_id',
     ];
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+    public function sizes()
+    {
+        return $this->belongsToMany(Size::class)->withPivot('product_id', 'size_id');
+    }
+    public function picture()
+    {
+        return $this->hasOne(Picture::class);
+    }
 }
