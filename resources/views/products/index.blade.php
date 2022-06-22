@@ -2,13 +2,6 @@
 @section('content')
     @forelse($products as $product)
         <span>
-{{--            @php--}}
-            {{--                $availableSizes = array_keys(array_column($sizes, 'product_id'), $product->id);--}}
-            {{--                var_dump($availableSizes);--}}
-            {{--            @endphp--}}
-            {{--            @foreach($availableSizes as $size)--}}
-            {{--                 {{ $sizes[$size] }}--}}
-            {{--            @endforeach--}}
             <pre>
             @foreach($product->sizes as $size)
                     {{ $size->name }}
@@ -21,7 +14,7 @@
                     {{$product->name}}
                 </h3>
             </a>
-{{--            <img src="{{$product->picture->image}}" alt="">--}}
+            <img src="{{\Illuminate\Support\Facades\Storage::url($product->picture->image)}}" alt="">
             <span>{{ $product->category->name }}</span>
             <p>
                 {{$product->description}}

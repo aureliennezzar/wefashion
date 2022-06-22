@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Category;
+use App\Models\Picture;
 use App\Models\Product;
 use App\Models\Size;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -57,20 +59,38 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
-//        foreach ($request->all()['sizes'] as $size){
-//
-//        }
+        //Retrieve categoryID  &  category
+        $categoryId = $request->all()['category_id'];
+        $category = DB::table('categories')->where('id', $categoryId)->first();
+
+        $filename = time() . '.' . $request->image->extension();
+        $path = $request->file('image')->storeAs(
+            $category->name,
+            $filename,
+            'public'
+        );
+
         $sizes = $request->all()['sizes'];
         $entries = array_merge($request->all(), ['reference' => generateRandomString(16)]);
         unset($entries['sizes']);
-        $product = Product::create($entries)->id;
 
+//        CREATE PRODUCT
+        $product = Product::create($entries);
+
+
+//        Insert new sizes
         foreach ($sizes as $size){
             DB::table('product_size')->insert([
-                'product_id' => $product,
+                'product_id' => $product->id,
                 'size_id' => $size
             ]);
         }
+
+        Picture::create(array(
+            'image' => $path,
+            'product_id' => $product->id
+        ));
+
         return redirect()->route('admin.products.index');
     }
 
