@@ -28,6 +28,7 @@ class Product extends Model
     {
         return $this->belongsToMany(Size::class)->withPivot('product_id', 'size_id');
     }
+
     public function picture()
     {
         return $this->hasOne(Picture::class);

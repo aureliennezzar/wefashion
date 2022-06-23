@@ -83,7 +83,7 @@
 
     <input type="file"
            id="picture" name="image"
-           accept="image/png, image/jpeg">
+           accept="image/png, image/jpeg" {{ $editMode ? '' : 'required' }}>
 </div>
 <input type="submit" class="submit-btn" value="Enregistrer"/>
 </form>

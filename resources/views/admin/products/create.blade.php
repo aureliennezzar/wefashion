@@ -5,6 +5,8 @@
         </h2>
     </x-slot>
     <form class="product-form" method="POST" action="{{ route('admin.products.store') }}" enctype="multipart/form-data">
+    {{--        Define form method type--}}
+    {{ method_field('POST') }}
     {{--        Generate token field--}}
     @csrf
     @include('admin/products/form')

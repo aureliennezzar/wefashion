@@ -29,6 +29,7 @@ class ProductController extends Controller
 
     public function update(Request $request, Product $product)
     {
+//        Formulaire validation
 
         $sizes = $request->all()['sizes'];
 //        $entries = array_merge($request->all(), ['reference' => generateRandomString(16)]);
@@ -82,6 +83,30 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
+
+//        [
+//      "_token" => "loF16YpRiFwCc2YYt0crR1CBr3XxLE4pQPud6rnf"
+//      "name" => "gdfsgdf"
+//      "description" => "gfdgdfsgdfgfd"
+//      "price" => "100"
+//      "sizes" => array:1 [
+//        0 => "2"
+//      ]
+//      "status" => "standard"
+//      "category_id" => "2"
+//      "published" => "1"
+//    ]
+        dd($request);
+
+        $request->validate([
+            "name" => "required",
+            "description" => "required",
+            "price" => "required",
+            "sizes" => "required",
+            "status" => "required",
+            "category_id" => "required",
+            "published" => "required",
+        ]);
         //Retrieve categoryID  &  category
         $categoryId = $request->all()['category_id'];
         $category = DB::table('categories')->where('id', $categoryId)->first();

@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Category;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -16,12 +17,13 @@ class ProductFactory extends Factory
      */
     public function definition()
     {
+
         // Seting up factory with right fields
         return [
             'name' => $this->faker->sentence(rand(1, 3),true),
             'description' => $this->faker->sentence(rand(1, 20), true),
-            'image' => $this->faker->imageUrl(),
             'price' => (mt_rand(5 * 10, 5000 * 10) / 10),
+            'category_id' => Category::all()->random(1)->first()->id,
             'status' => $this->faker->randomElement(['standard', 'solded']),
             'published' => $this->faker->boolean(),
             'reference'=>$this->faker->regexify('[A-Za-z0-9]{16}')
