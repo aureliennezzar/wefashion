@@ -5,22 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Laravel</title>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="{{ asset('css/vendor/bootstrap-grid.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
 </head>
 <body>
-<nav>
-    <select class="categories" id="categories-select" onchange="this.options[this.selectedIndex].value && (window.location = '/categorie/' + this.options[this.selectedIndex].value);">
-        <option value="">Choisir une catégorie</option>
-        @foreach( \App\Models\Category::all() as $category)
-            {{$category->name}}
-            <option
-                value="{{$category->id}}" {{ (request()->is('categorie/'.$category->id)) ? 'selected' : '' }}>{{$category->name}}</option>
-        @endforeach
-    </select>
+<header class="header">
+    <nav class="nav">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 nav__wrapper">
+                    <div class="brand-link">
+                        <h1>
+                            <a href="/">WeFashion</a>
+                        </h1>
+                    </div>
+                    <ul class="nav-links">
+                        @foreach( \App\Models\Category::all() as $category)
 
-    <a href="{{route('products.discount')}}">
-        {{ __('Soldes') }}
-    </a>
-</nav>
+                            <li class="link {{ (request()->is('categorie/'.$category->id)) ? 'active' : '' }}">
+                                <a href={{'/categorie/' . $category->id}}>{{$category->name}}</a>
+                            </li>
+                        @endforeach
+
+                            <li class="link discount">
+                                <a href="{{route('products.discount')}}">
+                                    {{ __('Soldes') }}
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+@yield('banner')
 @yield('content')
 </body>
 </html>

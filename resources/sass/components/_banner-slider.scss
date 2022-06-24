@@ -1,0 +1,37 @@
+.banner-swiper {
+    .swiper-wrapper {
+        .swiper-slide {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            height: calc(100vh - $navHeight);
+            @media (max-width: $screen-max-md) {
+                height: calc(100vh - $navHeightMobile);
+            }
+            &>.bg{
+                position: absolute;
+                inset:0;
+                z-index: -1;
+                background-position: center;
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
+            &__content{
+                text-align: center;
+                color: white;
+                padding: 60px;
+                backdrop-filter: blur(10px);
+                box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;;
+                &>h3{
+                    font-size: 40px;
+                    margin-bottom: 40px;
+                }
+                &>.cta{
+                    color: $white;
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+}

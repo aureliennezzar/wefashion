@@ -1,5 +1,7 @@
 import './bootstrap';
-
+import Swiper from 'swiper';
+// import Swiper styles
+import 'swiper/css';
 import Alpine from 'alpinejs';
 
 window.Alpine = Alpine;
@@ -23,4 +25,16 @@ if (exist('.product-form')) {
             e.preventDefault();
         }
     })
+}
+
+if(exist('.banner-swiper')){
+    const swiper = new Swiper('.banner-swiper', {
+        // Optional parameters
+        slidesPerView:1,
+        loop:true,
+        autoplay: {
+            delay: 2000,
+        },
+
+    });
 }

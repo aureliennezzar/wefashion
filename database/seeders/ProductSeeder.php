@@ -20,15 +20,14 @@ class ProductSeeder extends Seeder
      */
     public function run()
     {
-
-
-        Product::factory()->count(2)->create()->each(function ($product) {
+        Product::factory()->count(80)->create()->each(function ($product) {
             $size = Size::pluck('id')->shuffle()->slice(0, rand(1, 4))->all();
             $product->sizes()->attach($size);
 
             $categoryName = Category::where('id', $product->category_id)->first()->name;
             $allImageOf = Storage::disk('public')->allFiles($categoryName);
             $randomFile = $allImageOf[rand(0, count($allImageOf) - 1)];
+
             //Create Picture
             Picture::create(array(
                 'image' => $randomFile,
