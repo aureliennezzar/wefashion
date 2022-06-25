@@ -179,6 +179,50 @@ header.header .nav__wrapper ul.nav-links > li > a:hover {
   }
 }
 
+.footer {
+  padding: 40px 0;
+  background-color: #2A2D34;
+  color: #fff;
+}
+@media (max-width: 991px) {
+  .footer {
+    padding: 60px 0;
+  }
+}
+@media (max-width: 991px) {
+  .footer .brand-link {
+    margin-bottom: 60px;
+  }
+}
+.footer-col {
+  display: flex;
+  flex-direction: column;
+}
+.footer-col > .col-title {
+  font-size: 25px;
+  margin-bottom: 30px;
+}
+.footer-col > ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+.footer-col > ul > li:not(:last-child) {
+  margin-bottom: 15px;
+}
+.footer-col > ul > li > a {
+  color: #fff;
+  font-size: 14px;
+}
+.footer-col > ul > li > a:hover {
+  text-decoration: underline;
+}
+@media (max-width: 991px) {
+  .footer-col:not(:last-child) {
+    margin-bottom: 60px;
+  }
+}
+
 .banner-swiper .swiper-wrapper .swiper-slide {
   display: flex;
   align-items: center;

@@ -1,0 +1,50 @@
+.footer {
+    padding: 40px 0;
+    background-color: $gunmetal;
+    color: $white;
+    @media (max-width: $screen-max-md) {
+        padding: 60px 0;
+    }
+
+    .brand-link {
+        @media (max-width: $screen-max-md) {
+            margin-bottom: 60px;
+        }
+    }
+
+    &-col {
+        display: flex;
+        flex-direction: column;
+
+        & > .col-title {
+            font-size: 25px;
+            margin-bottom: 30px;
+        }
+
+        & > ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+
+            & > li {
+                &:not(:last-child) {
+                    margin-bottom: 15px;
+                }
+
+                & > a {
+                    color: $white;
+                    font-size: 14px;
+                    &:hover{
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+
+        @media (max-width: $screen-max-md) {
+            &:not(:last-child) {
+                margin-bottom: 60px;
+            }
+        }
+    }
+}

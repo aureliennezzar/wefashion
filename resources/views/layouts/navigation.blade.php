@@ -7,7 +7,7 @@
                 <div class="shrink-0 flex items-center">
                     <div class="brand-link">
                         <h1>
-                            <a href="{{ route('dashboard') }}">WeFashion</a>
+                            <a href="/">WeFashion</a>
                         </h1>
                     </div>
                 </div>

@@ -50,5 +50,61 @@
 </header>
 @yield('banner')
 @yield('content')
+<footer class="footer">
+    <div class="container">
+        <div class="row flex-lg-row flex-column">
+            <div class="col-lg-3 col-12">
+                <div class="brand-link">
+                    <h1>
+                        <a href="/">WeFashion</a>
+                    </h1>
+                </div>
+            </div>
+            <div class="col-lg-3 col-12 footer-col">
+                <h3 class="col-title">Informations</h3>
+                <ul>
+                    <li>
+                        <a href="#">Mentions légales</a>
+                    </li>
+                    <li>
+                        <a href="#">Presse</a></li>
+                    <li>
+                        <a href="#">Fabrication</a>
+
+                    </li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-12 footer-col">
+                <h3 class="col-title">Service Client</h3>
+                <ul>
+                    <li>
+                        <a href="#">Contactez-nous</a>
+                    </li>
+                    <li>
+                        <a href="#">Livraison & Retours</a>
+                    </li>
+                    <li>
+                        <a href="#">Conditions de vente</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-12 footer-col">
+                <h3 class="col-title">Réseaux Sociaux</h3>
+                <ul>
+                    <li>
+                        <a href="#"><i class="icon-facebook"></i>Facebook</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="icon-instagram"></i>Instagram</a>
+                    </li>
+                    <li>
+                        <a href="#">Newsletter</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</footer>
 </body>
 </html>
