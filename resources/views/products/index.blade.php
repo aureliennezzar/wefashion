@@ -8,21 +8,7 @@
     <!-- Slider main container -->
     <div class="swiper banner-swiper">
         <div class="swiper-wrapper">
-            <div class="swiper-slide discount">
-                <div class="bg"
-                     style="background-image: url('/storage/{{$allBackgrounds[rand(0, count($allBackgrounds) - 1)]}}')">
-                </div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12 swiper-slide__content">
-                            <h3>Les soldes d'été sont la !</h3>
-                            <a href="/discount/" class="cta">Voir plus</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
             @foreach( \App\Models\Category::all() as $category)
-
                 @php
                     $randomFile = "";
                     $allImageOf = \Illuminate\Support\Facades\Storage::disk('public')->allFiles("backgrounds/".$category->name);
@@ -39,13 +25,26 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-12 swiper-slide__content">
-                                <h3>Collection {{$category->name}}</h3>
+                                <h3>Collection {{ucfirst($category->name)}}</h3>
                                 <a class="cta" href={{'/categorie/' . $category->id}}>Voir</a>
                             </div>
                         </div>
                     </div>
                 </div>
             @endforeach
+                <div class="swiper-slide discount">
+                    <div class="bg"
+                         style="background-image: url('/storage/{{$allBackgrounds[rand(0, count($allBackgrounds) - 1)]}}')">
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12 swiper-slide__content">
+                                <h3>Les soldes d'été sont la !</h3>
+                                <a href="/discount/" class="cta">Voir plus</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
         </div>
     </div>
 @endsection

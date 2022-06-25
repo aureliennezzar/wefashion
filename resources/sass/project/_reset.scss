@@ -17,13 +17,14 @@
 a {
     background-color: transparent;
     text-decoration: none;
+
     &:visited {
         text-decoration: none;
         color: inherit;
     }
 }
 
-a, button, input[type=button] {
+a, button, input[type=button], input[type=submit] {
     border: none;
     margin: 0;
     padding: 0;

@@ -5112,7 +5112,7 @@ if (exist('.banner-swiper')) {
     slidesPerView: 1,
     loop: true,
     autoplay: {
-      delay: 2000
+      delay: 1
     }
   });
 }

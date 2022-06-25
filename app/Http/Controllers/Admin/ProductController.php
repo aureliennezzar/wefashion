@@ -96,7 +96,6 @@ class ProductController extends Controller
 //      "category_id" => "2"
 //      "published" => "1"
 //    ]
-        dd($request);
 
         $request->validate([
             "name" => "required",

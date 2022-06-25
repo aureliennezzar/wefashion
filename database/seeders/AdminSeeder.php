@@ -2,26 +2,25 @@
 
 namespace Database\Seeders;
 
-use App\Models\Product;
+use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
-class DatabaseSeeder extends Seeder
+class AdminSeeder extends Seeder
 {
     /**
-     * Seed the application's database.
+     * Run the database seeds.
      *
      * @return void
      */
     public function run()
     {
-        $this->call([
-            AdminSeeder::class,
-            SizesSeeder::class,
-            CategoriesSeeder::class,
-//            ProductSeeder::class
+        User::create([
+            'name' => 'Edouard',
+            'email' => 'admin@wefashion.com',
+            'password' => Hash::make('admin'),
         ]);
     }
 }

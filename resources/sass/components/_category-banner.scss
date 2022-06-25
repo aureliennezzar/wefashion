@@ -1,0 +1,28 @@
+.category-banner{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+    height: calc(100vh - $navHeight);
+    @media (max-width: $screen-max-md) {
+        height: calc(100vh - $navHeightMobile);
+    }
+
+    &>.bg{
+        position: absolute;
+        inset:0;
+        z-index: -1;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    .desc{
+        font-size: 18px;
+        color: $white;
+    }
+    .title{
+        color: $white;
+        font-size: 40px;
+        margin-bottom: 40px;
+    }
+}

@@ -1,5 +1,7 @@
-.cta {
-    padding: 20px 50px;
-    background-color: $cyan;
+.cta{
+    display: inline-block;
+    padding: 20px 50px !important;
+    background-color: $light-green;
     color: white;
+    cursor: pointer;
 }

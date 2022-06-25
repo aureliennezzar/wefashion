@@ -1,8 +1,12 @@
 .products {
     padding: 40px 0;
+    &.category{
+
+    }
 
     .title {
         margin-bottom: 30px;
+        text-transform: capitalize;
     }
 
     //PRODUCTS GRID
