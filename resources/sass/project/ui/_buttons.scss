@@ -1,7 +1,15 @@
-.cta{
+.cta {
     display: inline-block;
     padding: 20px 50px !important;
     background-color: $light-green;
-    color: white;
+    color: $white;
+    border: 1px solid transparent;
     cursor: pointer;
+    transition: color .2s ease-in-out, background .2s ease-in-out, border .2s ease-in-out;
+
+    &:hover, &:focus {
+        background-color: $white;
+        border-color: $light-green;
+        color: $light-green !important;
+    }
 }

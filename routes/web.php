@@ -28,8 +28,8 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function(){
 });
 
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
+Route::get('/admin', function () {
+    return redirect('/admin/products');
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';

@@ -15,6 +15,40 @@ header.header {
             display: flex;
             align-items: center;
             position: relative;
+            @media(max-width: $screen-max-md) {
+                justify-content: space-between;
+            }
+
+            .burger {
+                height: 25px;
+                width: 40px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                cursor: pointer;
+                padding: 5px;
+
+                & > .bar {
+                    height: 2px;
+                    width: 100%;
+                    background-color: $dark-green;
+                }
+
+                &.opened {
+                    & > .bar {
+                        &:first-child {
+                            transform: translateY(5px) rotate(45deg);
+                        }
+                        &:nth-child(2){
+                            display: none;
+                        }
+
+                        &:last-child {
+                            transform: translateY(-8px) rotate(-45deg);
+                        }
+                    }
+                }
+            }
 
             .brand-link {
                 h1 > a {
@@ -31,17 +65,54 @@ header.header {
                 left: 50%;
                 top: 50%;
                 transform: translateX(-50%) translateY(-50%);
-                &>li{
+
+                & > li {
                     font-size: 16px;
                     letter-spacing: .2em;
-                    &:not(:last-child){
+
+                    &:not(:last-child) {
                         margin-right: 20px;
                     }
-                    &>a{
+
+                    & > a {
                         text-transform: uppercase;
+
+                        &:hover {
+                            text-decoration: underline;
+                        }
                     }
-                    &.discount{
+
+                    &.discount {
                         @extend .pt-bold;
+                    }
+                }
+
+                @media (max-width: $screen-max-md) {
+                    position: fixed;
+                    padding: 60px 0;
+                    background-color: white;
+                    left: 0;
+                    right: 0;
+                    top: 60px;
+                    width: 100vw;
+                    height: 100vh;
+                    z-index: 10;
+                    flex-direction: column;
+                    transition: transform .2s ease-in-out;
+                    transform: translateX(100vw) translateY(0);
+                    @media (max-width: $screen-max-sm){
+                        top: 49px;
+                    }
+                    &.opened {
+                        transform: translateX(0) translateY(0);
+                    }
+                    & > li {
+                        font-size: 20px;
+
+                        &:not(:last-child) {
+                            margin-right: 0;
+                            margin-bottom: 30px;
+                        }
                     }
                 }
             }

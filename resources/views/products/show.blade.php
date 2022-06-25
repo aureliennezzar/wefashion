@@ -24,6 +24,9 @@
                                 @endforeach
                             </select>
                         </div>
+                        <div class="ref">
+                            Ref: <span>{{$product->reference}}</span>
+                        </div>
 
                         <input type="submit" class="cta" value="Acheter">
 

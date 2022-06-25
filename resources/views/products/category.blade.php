@@ -18,7 +18,7 @@
         </div>
         <div class="container">
             <div class="row">
-                <div class="col-6 category-banner__content">
+                <div class="col-md-6 col-12 category-banner__content">
                     <h1 class="title">{{ __('Découvrez notre collection  '.ucfirst($category->name)) }}</h1>
                     <p class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum distinctio dolor
                         dolore incidunt itaque nihil obcaecati possimus quis sapiente! Ea, omnis, velit? Accusantium ad,

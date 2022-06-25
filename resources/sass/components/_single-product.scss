@@ -29,6 +29,15 @@
             margin-bottom: 30px;
         }
 
+        .ref {
+            color: $grey;
+            & > span {
+                font-size: 12px;
+            }
+
+            margin-bottom: 40px;
+        }
+
         .under-title {
             position: relative;
             display: flex;

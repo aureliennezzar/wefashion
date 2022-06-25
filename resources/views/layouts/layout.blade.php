@@ -32,12 +32,17 @@
                             </li>
                         @endforeach
 
-                            <li class="link discount">
-                                <a href="{{route('products.discount')}}">
-                                    {{ __('Soldes') }}
-                                </a>
-                            </li>
+                        <li class="link discount">
+                            <a href="{{route('products.discount')}}">
+                                {{ __('Soldes') }}
+                            </a>
+                        </li>
                     </ul>
+                    <div class="burger only-mobile">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </div>
                 </div>
             </div>
         </div>

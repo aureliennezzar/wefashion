@@ -1,0 +1,33 @@
+.admin-products {
+    padding: 60px 0;
+    .single-product{
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        &:not(:last-child){
+            margin-bottom: 40px;
+        }
+        .product-image{
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+        }
+        &__data{
+            display: flex;
+            align-items: center;
+        }
+
+        &__actions{
+            .cta{
+                height: 40px;
+                line-height: 40px;
+                padding: 0 30px !important;
+                color: $white;
+            }
+            display: flex;
+            &>a{
+                margin-right: 20px;
+            }
+        }
+    }
+}

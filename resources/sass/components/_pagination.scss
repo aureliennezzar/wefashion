@@ -1,0 +1,44 @@
+.products__pagination {
+    ul.pagination {
+        display: flex;
+        list-style: none;
+        justify-content: center;
+
+        li.page-item {
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 5px;
+            transition: color .2s ease-in-out, background .2s ease-in-out;
+
+            &:hover {
+                color: white;
+                background-color: $blue;
+            }
+
+            a {
+                color: inherit;
+                padding: 5px;
+            }
+
+            &.active {
+                color: white;
+                background-color: $cyan;
+            }
+
+            &:first-child {
+                margin-right: 15px;
+            }
+
+            &:last-child {
+                margin-left: 15px;
+            }
+
+            &:not(:first-child), &:not(:last-child) {
+                margin-right: 10px;
+            }
+        }
+    }
+}

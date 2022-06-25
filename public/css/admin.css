@@ -1,0 +1,166 @@
+@import url(https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap);
+/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+/* Document
+   ========================================================================== */
+/**
+ * 1. Correct the line height in all browsers.
+ * 2. Prevent adjustments of font size after orientation changes in iOS.
+ */
+*, ::after, ::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  background-color: transparent;
+  text-decoration: none;
+}
+a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+a, button, input[type=button], input[type=submit] {
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+  text-align: inherit;
+}
+a:hover, a:focus, a.hover, button:hover, button:focus, button.hover, input[type=button]:hover, input[type=button]:focus, input[type=button].hover, input[type=submit]:hover, input[type=submit]:focus, input[type=submit].hover {
+  outline: none;
+}
+
+.cta {
+  display: inline-block;
+  padding: 20px 50px !important;
+  background-color: #66EB9A;
+  color: #fff;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: color 0.2s ease-in-out, background 0.2s ease-in-out, border 0.2s ease-in-out;
+}
+.cta:hover, .cta:focus {
+  background-color: #fff;
+  border-color: #66EB9A;
+  color: #66EB9A !important;
+}
+
+.pt-bold {
+  font-family: "PT Serif", serif;
+  font-weight: 700;
+}
+
+html, body {
+  font-family: "PT Serif", serif;
+  color: #2A2D34;
+}
+
+@media (max-width: 991px) {
+  .only-desktop {
+    display: none !important;
+  }
+}
+
+@media (min-width: 992px) {
+  .only-mobile {
+    display: none !important;
+  }
+}
+
+.brand-link h1 > a {
+  color: #66EB9A;
+  font-size: 30px;
+}
+
+.admin-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.top-header > a {
+  position: relative;
+  line-height: 64px;
+}
+.top-header > a.active:before {
+  position: absolute;
+  content: "";
+  bottom: 0;
+  right: 0;
+  left: 0;
+  height: 3px;
+  background-color: #66EB9A;
+}
+
+.products__pagination ul.pagination {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+}
+.products__pagination ul.pagination li.page-item {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  transition: color 0.2s ease-in-out, background 0.2s ease-in-out;
+}
+.products__pagination ul.pagination li.page-item:hover {
+  color: white;
+  background-color: #0094DF;
+}
+.products__pagination ul.pagination li.page-item a {
+  color: inherit;
+  padding: 5px;
+}
+.products__pagination ul.pagination li.page-item.active {
+  color: white;
+  background-color: #00CAFF;
+}
+.products__pagination ul.pagination li.page-item:first-child {
+  margin-right: 15px;
+}
+.products__pagination ul.pagination li.page-item:last-child {
+  margin-left: 15px;
+}
+.products__pagination ul.pagination li.page-item:not(:first-child), .products__pagination ul.pagination li.page-item:not(:last-child) {
+  margin-right: 10px;
+}
+
+.admin-products {
+  padding: 60px 0;
+}
+.admin-products .single-product {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.admin-products .single-product:not(:last-child) {
+  margin-bottom: 40px;
+}
+.admin-products .single-product .product-image {
+  width: 100px;
+  height: 100px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.admin-products .single-product__data {
+  display: flex;
+  align-items: center;
+}
+.admin-products .single-product__actions {
+  display: flex;
+}
+.admin-products .single-product__actions .cta {
+  height: 40px;
+  line-height: 40px;
+  padding: 0 30px !important;
+  color: #fff;
+}
+.admin-products .single-product__actions > a {
+  margin-right: 20px;
+}

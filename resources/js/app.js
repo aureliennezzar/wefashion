@@ -1,5 +1,5 @@
 import './bootstrap';
-import Swiper from 'swiper';
+import Swiper, { Autoplay } from 'swiper';
 // import Swiper styles
 import 'swiper/css';
 import Alpine from 'alpinejs';
@@ -17,7 +17,7 @@ if (exist('.product-form')) {
     // Check if at least one checkbox is checked
     const submitBtn = document.querySelector('.product-form .submit-btn')
     const form = document.querySelector('.product-form')
-    form.addEventListener('submit',function(e){
+    form.addEventListener('submit', function (e) {
         const checked = document.querySelectorAll('.product-form .size-checkbox:checked').length
 
         if (!checked) {
@@ -27,13 +27,27 @@ if (exist('.product-form')) {
     })
 }
 
-if(exist('.banner-swiper')){
+if (exist('.burger')) {
+    const burger = document.querySelector('.burger');
+    const navLinks = document.querySelector('.nav-links');
+    burger.addEventListener("click", function () {
+        document.body.classList.toggle('mobile-nav-opened');
+        navLinks.classList.toggle('opened')
+        burger.classList.toggle('opened')
+    })
+
+}
+if (exist('.banner-swiper')) {
     const swiper = new Swiper('.banner-swiper', {
-        // Optional parameters
-        slidesPerView:1,
-        loop:true,
+        modules: [Autoplay],
+        slidesPerView: 1,
+        loop: true,
+        speed:1000,
         autoplay: {
-            delay: 1,
+            delay: 3000,
+            duration:2000,
+            disableOnInteraction: false
         },
     });
 }
+

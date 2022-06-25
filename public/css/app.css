@@ -2387,9 +2387,6 @@ select {
 .h-16 {
   height: 4rem;
 }
-.h-10 {
-  height: 2.5rem;
-}
 .h-4 {
   height: 1rem;
 }
@@ -2411,9 +2408,6 @@ select {
 .w-full {
   width: 100%;
 }
-.w-auto {
-  width: auto;
-}
 .w-4 {
   width: 1rem;
 }
@@ -2422,6 +2416,9 @@ select {
 }
 .w-8 {
   width: 2rem;
+}
+.w-auto {
+  width: auto;
 }
 .w-48 {
   width: 12rem;

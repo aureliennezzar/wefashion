@@ -17,4 +17,5 @@ mix
     require('autoprefixer'),
 ])
     .sass('resources/sass/app.scss', 'public/css')
-    .sass('resources/sass/main.scss', 'public/css');
+    .sass('resources/sass/main.scss', 'public/css')
+    .sass('resources/sass/admin.scss', 'public/css');

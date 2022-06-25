@@ -1,7 +1,20 @@
-html,body{
+html, body {
     font-family: 'PT Serif', serif;
     color: $gunmetal;
 }
 
-$navHeight:80px;
-$navHeightMobile:60px;
+.only-desktop {
+    @media (max-width: $screen-max-md) {
+        display: none !important;
+    }
+}
+
+.only-mobile {
+    @media (min-width: $screen-min-md) {
+        display: none !important;
+    }
+
+}
+
+$navHeight: 80px;
+$navHeightMobile: 60px;
