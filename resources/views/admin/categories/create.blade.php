@@ -4,9 +4,17 @@
             {{ __('Créer une nouvelle catégorie') }}
         </h2>
     </x-slot>
-    <form class="category-form" method="POST" action="{{ route('admin.categories.store') }}">
-    {{--        Generate token field--}}
-    @csrf
-    @include('admin/categories/form')
 
+    <section class="admin-form">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <form class="category-form" method="POST" action="{{ route('admin.categories.store') }}">
+                    {{--        Generate token field--}}
+                    @csrf
+                    @include('admin/categories/form')
+                </div>
+            </div>
+        </div>
+    </section>
 </x-app-layout>

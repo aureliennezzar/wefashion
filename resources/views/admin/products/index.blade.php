@@ -3,7 +3,7 @@
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Modifier les produits') }}
         </h2>
-        <a class="cta" href="{{ route('admin.products.create') }}">Ajouter un produit</a>
+        <a class="cta" href="{{ route('admin.products.create') }}">{{__("Ajouter")}}</a>
     </x-slot>
     <section class="admin-products">
 
@@ -29,7 +29,8 @@
 
                                         {{--        Generate token field--}}
                                         @csrf
-                                        <input class="cta" type="submit" value="Supprimer" onclick="return confirm('Êtes-vous sûr ?')">
+                                        <input class="cta" type="submit" value="Supprimer"
+                                               onclick="return confirm('Êtes-vous sûr ?')">
                                     </form>
                                 </div>
                             </div>
