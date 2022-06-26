@@ -70,6 +70,12 @@ html, body {
   }
 }
 
+.home-template .gsap-fade-up {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(40px);
+}
+
 header.header {
   display: flex;
   align-items: center;

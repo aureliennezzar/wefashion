@@ -1,4 +1,4 @@
-<div class="product-card">
+<div class="product-card gsap-fade-up">
     {!! $product->status == "solded" ? '<span class="discount-message"> En solde</span>' : '' !!}
     <div class="product-image">
         <img src="{{ asset('/storage/'.$product->picture->image) }}" alt="">

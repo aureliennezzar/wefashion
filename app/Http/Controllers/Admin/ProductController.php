@@ -31,11 +31,17 @@ class ProductController extends Controller
     {
 //        Formulaire validation
 
+        $request->validate([
+            "name" => ['required', 'min:5', 'max:100'],
+            "description" => "required",
+            "price" => "required",
+            "sizes" => "required",
+            "status" => "required",
+            "category_id" => "required",
+            "published" => "required",
+        ]);
+        
         $sizes = $request->all()['sizes'];
-//        $entries = array_merge($request->all(), ['reference' => generateRandomString(16)]);
-//        unset($entries['sizes']);
-//
-
 //        Delete all sizes related to product
         DB::table('product_size')->where('product_id', $product->id)->delete();
 
@@ -84,21 +90,8 @@ class ProductController extends Controller
     public function store(Request $request)
     {
 
-//        [
-//      "_token" => "loF16YpRiFwCc2YYt0crR1CBr3XxLE4pQPud6rnf"
-//      "name" => "gdfsgdf"
-//      "description" => "gfdgdfsgdfgfd"
-//      "price" => "100"
-//      "sizes" => array:1 [
-//        0 => "2"
-//      ]
-//      "status" => "standard"
-//      "category_id" => "2"
-//      "published" => "1"
-//    ]
-
         $request->validate([
-            "name" => "required",
+            "name" => ['required', 'min:5', 'max:100'],
             "description" => "required",
             "price" => "required",
             "sizes" => "required",

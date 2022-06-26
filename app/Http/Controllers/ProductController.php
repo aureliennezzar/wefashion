@@ -15,11 +15,15 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::orderBy('created_at', 'desc')->where('published', true)->where('category_id', '!=', 'null')->paginate(6);
+
 //        $sizes = ProductSize::get();
 //        dd($sizes);
 //        $sizes = DB::table('product_size')->get()->toArray();
 //        $sizesValue = DB::table('sizes')->get();
-        return view('products.index', compact('products'));
+        return view('products.index', [
+            'products' => $products,
+            'bodyclass' => "home-template",
+        ]);
     }
 
     //Show products by category

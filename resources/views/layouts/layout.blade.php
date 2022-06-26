@@ -13,13 +13,13 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 </head>
-<body>
+<body class="{{ !empty($bodyclass) ? $bodyclass : "" }}">
 <header class="header">
     <nav class="nav">
         <div class="container">
             <div class="row">
                 <div class="col-12 nav__wrapper">
-                    <div class="brand-link">
+                    <div class="brand-link gsap-fade-up">
                         <h1>
                             <a href="/">WeFashion</a>
                         </h1>
@@ -27,12 +27,12 @@
                     <ul class="nav-links">
                         @foreach( \App\Models\Category::all() as $category)
 
-                            <li class="link {{ (request()->is('categorie/'.$category->id)) ? 'active' : '' }}">
+                            <li class="link {{ (request()->is('categorie/'.$category->id)) ? 'active' : '' }} gsap-fade-up">
                                 <a href={{'/categorie/' . $category->id}}>{{$category->name}}</a>
                             </li>
                         @endforeach
 
-                        <li class="link discount">
+                        <li class="link discount gsap-fade-up">
                             <a href="{{route('products.discount')}}">
                                 {{ __('Soldes') }}
                             </a>

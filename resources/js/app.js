@@ -1,5 +1,7 @@
 import './bootstrap';
-import Swiper, { Autoplay } from 'swiper';
+import Swiper, {Autoplay} from 'swiper';
+import gsap from 'gsap';
+import {ScrollTrigger} from "gsap/ScrollTrigger.js";
 // import Swiper styles
 import 'swiper/css';
 import Alpine from 'alpinejs';
@@ -37,15 +39,37 @@ if (exist('.burger')) {
     })
 
 }
+
+if (exist('.gsap-fade-up')) {
+
+    gsap.registerPlugin(ScrollTrigger)
+    if(exist('.home-template')){
+        const startTL = gsap.timeline()
+        startTL
+            .to('.nav-links .link', {autoAlpha: 1, y: 0, stagger: 0.2, delay: 0.2})
+            .to('.brand-link', {autoAlpha: 1, y: 0})
+    }
+    gsap.to('.product-card', {
+        scrollTrigger: {
+            trigger: ".products__grid",
+            start:"20% bottom",
+        },
+        autoAlpha: 1,
+        y: 0,
+        duration:0.3,
+        stagger: 0.3
+    })
+}
+
 if (exist('.banner-swiper')) {
     const swiper = new Swiper('.banner-swiper', {
         modules: [Autoplay],
         slidesPerView: 1,
         loop: true,
-        speed:1000,
+        speed: 1000,
         autoplay: {
             delay: 3000,
-            duration:2000,
+            duration: 2000,
             disableOnInteraction: false
         },
     });

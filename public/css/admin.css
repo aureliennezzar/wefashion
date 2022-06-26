@@ -70,6 +70,12 @@ html, body {
   }
 }
 
+.home-template .gsap-fade-up {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(40px);
+}
+
 .brand-link h1 > a {
   color: #66EB9A;
   font-size: 30px;

@@ -13,7 +13,12 @@ html, body {
     @media (min-width: $screen-min-md) {
         display: none !important;
     }
+}
 
+.home-template .gsap-fade-up{
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(40px);
 }
 
 $navHeight: 80px;

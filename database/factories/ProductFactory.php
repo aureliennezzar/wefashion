@@ -17,7 +17,6 @@ class ProductFactory extends Factory
      */
     public function definition()
     {
-
         // Seting up factory with right fields
         return [
             'name' => $this->faker->sentence(rand(1, 3), true),
