@@ -13,7 +13,7 @@ class Size extends Model
         'name',
         'size_id'
     ];
-
+    //SIZE RELATIONS
     public function products()
     {
         return $this->hasMany(Product::class);

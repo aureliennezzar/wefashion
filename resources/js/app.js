@@ -10,11 +10,14 @@ window.Alpine = Alpine;
 
 Alpine.start();
 
+//function exist() check if an element exist based on query
 function exist(query) {
     const element = document.querySelector(query)
     return typeof (element) != 'undefined' && element != null
 }
 
+
+//Form front alert for checkbox required
 if (exist('.product-form')) {
     // Check if at least one checkbox is checked
     const submitBtn = document.querySelector('.product-form .submit-btn')
@@ -29,6 +32,7 @@ if (exist('.product-form')) {
     })
 }
 
+//Handle burger
 if (exist('.burger')) {
     const burger = document.querySelector('.burger');
     const navLinks = document.querySelector('.nav-links');
@@ -37,9 +41,9 @@ if (exist('.burger')) {
         navLinks.classList.toggle('opened')
         burger.classList.toggle('opened')
     })
-
 }
 
+//GSAP ANIMATIONS
 if (exist('.gsap-fade-up')) {
 
     gsap.registerPlugin(ScrollTrigger)
@@ -61,6 +65,8 @@ if (exist('.gsap-fade-up')) {
     })
 }
 
+
+//SWIPER BANNER
 if (exist('.banner-swiper')) {
     const swiper = new Swiper('.banner-swiper', {
         modules: [Autoplay],

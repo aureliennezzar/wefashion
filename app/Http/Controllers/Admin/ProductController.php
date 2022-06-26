@@ -14,12 +14,15 @@ use Illuminate\Support\Facades\Storage;
 class ProductController extends Controller
 {
 
+
+    //INDEX OF ADMIN SIDE PRODUCTS
     public function index()
     {
-        $products = Product::paginate(6);
+        $products = Product::paginate(15);
         return view('admin.products.index', compact('products'));
     }
 
+    //CREATE VIEW OF ADMIN SIDE PRODUCTS
     public function create()
     {
         $sizes = Size::all();
@@ -27,6 +30,16 @@ class ProductController extends Controller
         return view('admin.products.create', compact('sizes', 'categories'));
     }
 
+    //EDIT VIEW OF ADMIN SIDE PRODUCTS
+    public function edit(Product $product)
+    {
+        $sizes = Size::all();
+        $categories = Category::all();
+        return view('admin.products.edit', compact('product', 'sizes', 'categories'));
+    }
+
+
+    //UPDATE FUNCTION FOR CRUD DATA
     public function update(Request $request, Product $product)
     {
 //        Formulaire validation
@@ -40,7 +53,7 @@ class ProductController extends Controller
             "category_id" => "required",
             "published" => "required",
         ]);
-        
+
         $sizes = $request->all()['sizes'];
 //        Delete all sizes related to product
         DB::table('product_size')->where('product_id', $product->id)->delete();
@@ -79,14 +92,7 @@ class ProductController extends Controller
         return redirect()->route('admin.products.index');
     }
 
-    public function edit(Product $product)
-    {
-        $sizes = Size::all();
-        $categories = Category::all();
-        return view('admin.products.edit', compact('product', 'sizes', 'categories'));
-    }
-
-
+    //STORE FUNCTION FOR CRUD DATA
     public function store(Request $request)
     {
 
@@ -135,6 +141,7 @@ class ProductController extends Controller
         return redirect()->route('admin.products.index');
     }
 
+    //DESTROY FUNCTION FOR CRUD DATA
     public function destroy(Product $product)
     {
         $product->delete();

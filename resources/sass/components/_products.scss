@@ -1,7 +1,14 @@
 .products {
     padding: 40px 0;
-    &.category{
 
+    &.category {
+
+    }
+
+    .prodcts-top {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
     }
 
     .title {
@@ -17,7 +24,7 @@
         gap: $gap;
         margin-bottom: 60px;
         width: calc(100% + $gap);
-        @media (max-width: $screen-max-md){
+        @media (max-width: $screen-max-md) {
 
         }
 
@@ -25,13 +32,14 @@
             position: relative;
             width: calc((100% / 3) - $gap);
             margin-bottom: 50px;
-            @media (max-width: $screen-max-md){
+            @media (max-width: $screen-max-md) {
                 width: calc((100% / 2) - $gap);
             }
-            @media (max-width: $screen-max-xs){
+            @media (max-width: $screen-max-xs) {
 
                 width: calc(100% - $gap);
             }
+
             &:hover {
                 .product-image {
                     & > img {

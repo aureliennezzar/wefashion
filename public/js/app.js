@@ -5089,12 +5089,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 window.Alpine = alpinejs__WEBPACK_IMPORTED_MODULE_3__["default"];
-alpinejs__WEBPACK_IMPORTED_MODULE_3__["default"].start();
+alpinejs__WEBPACK_IMPORTED_MODULE_3__["default"].start(); //function exist() check if an element exist based on query
 
 function exist(query) {
   var element = document.querySelector(query);
   return typeof element != 'undefined' && element != null;
-}
+} //Form front alert for checkbox required
+
 
 if (exist('.product-form')) {
   // Check if at least one checkbox is checked
@@ -5108,7 +5109,8 @@ if (exist('.product-form')) {
       e.preventDefault();
     }
   });
-}
+} //Handle burger
+
 
 if (exist('.burger')) {
   var burger = document.querySelector('.burger');
@@ -5118,7 +5120,8 @@ if (exist('.burger')) {
     navLinks.classList.toggle('opened');
     burger.classList.toggle('opened');
   });
-}
+} //GSAP ANIMATIONS
+
 
 if (exist('.gsap-fade-up')) {
   gsap__WEBPACK_IMPORTED_MODULE_4__["default"].registerPlugin(gsap_ScrollTrigger_js__WEBPACK_IMPORTED_MODULE_5__.ScrollTrigger);
@@ -5146,7 +5149,8 @@ if (exist('.gsap-fade-up')) {
     duration: 0.3,
     stagger: 0.3
   });
-}
+} //SWIPER BANNER
+
 
 if (exist('.banner-swiper')) {
   var swiper = new swiper__WEBPACK_IMPORTED_MODULE_1__["default"]('.banner-swiper', {

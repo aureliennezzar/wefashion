@@ -77,8 +77,31 @@ html, body {
 }
 
 .brand-link h1 > a {
+  pointer-events: none;
   color: #66EB9A;
   font-size: 30px;
+}
+
+nav .flex {
+  flex: 1;
+}
+
+.custom-links {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.home-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(3px);
+}
+.home-link > svg {
+  height: 40px;
+  width: 40px;
+  fill: #66EB9A;
 }
 
 .admin-header {

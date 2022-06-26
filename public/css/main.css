@@ -266,6 +266,11 @@ header.header .nav__wrapper ul.nav-links > li > a:hover {
 .products {
   padding: 40px 0;
 }
+.products .prodcts-top {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
 .products .title {
   margin-bottom: 30px;
   text-transform: capitalize;

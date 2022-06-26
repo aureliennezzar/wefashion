@@ -35,7 +35,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <h2 class="title">{{ __('Collection '.$category->name) }}</h2>
+                    <div class="prodcts-top">
+                        <h2 class="title">{{ __('Collection '.$category->name) }}</h2>
+                        <span class="nb-products">{{ __('Nombre de résultats : '.$nbProducts) }}</span>
+                    </div>
                     <div class="products__grid">
                         @forelse($products as $product)
                             @include('products/card',compact('product'))

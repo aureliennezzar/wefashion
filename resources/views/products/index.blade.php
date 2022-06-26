@@ -32,19 +32,19 @@
                     </div>
                 </div>
             @endforeach
-                <div class="swiper-slide discount">
-                    <div class="bg"
-                         style="background-image: url('/storage/{{$allBackgrounds[rand(0, count($allBackgrounds) - 1)]}}')">
-                    </div>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-12 swiper-slide__content">
-                                <h3>Les soldes d'été sont la !</h3>
-                                <a href="/discount/" class="cta">Voir plus</a>
-                            </div>
+            <div class="swiper-slide discount">
+                <div class="bg"
+                     style="background-image: url('/storage/{{$allBackgrounds[rand(0, count($allBackgrounds) - 1)]}}')">
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 swiper-slide__content">
+                            <h3>Les soldes d'été sont la !</h3>
+                            <a href="/discount/" class="cta">Voir plus</a>
                         </div>
                     </div>
                 </div>
+            </div>
         </div>
     </div>
 @endsection
@@ -55,7 +55,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <h2 class="title">{{ __('Nos derniers produits') }}</h2>
+                    <div class="prodcts-top">
+                        <h2 class="title">{{ __('Nos derniers produits') }}</h2>
+                        <span class="nb-products">{{ __('Nombre de résultats : '.$nbProducts) }}</span>
+                    </div>
                     <div class="products__grid">
                         @forelse($products as $product)
                             @include('products/card',compact('product'))

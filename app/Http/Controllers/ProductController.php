@@ -14,14 +14,12 @@ class ProductController extends Controller
     //Index function (list all products)
     public function index()
     {
-        $products = Product::orderBy('created_at', 'desc')->where('published', true)->where('category_id', '!=', 'null')->paginate(6);
+        $products = Product::orderBy('created_at', 'desc')->where('published', true)->where('category_id', '!=', 'null');
+        $paginatedProducts = $products->paginate(6);
 
-//        $sizes = ProductSize::get();
-//        dd($sizes);
-//        $sizes = DB::table('product_size')->get()->toArray();
-//        $sizesValue = DB::table('sizes')->get();
         return view('products.index', [
-            'products' => $products,
+            'products' => $paginatedProducts,
+            'nbProducts' => $products->count(),
             'bodyclass' => "home-template",
         ]);
     }
@@ -30,15 +28,24 @@ class ProductController extends Controller
     public function category($id)
     {
         $category = Category::findOrFail($id);
-        $products = Product::orderBy('created_at', 'desc')->where('published', true)->where('category_id', $id)->paginate(6);
-        return view('products.category', compact('products', 'category'));
+        $products = Product::orderBy('created_at', 'desc')->where('published', true)->where('category_id', $id);
+        $paginatedProducts = $products->paginate(6);
+        return view('products.category', [
+            'products' => $paginatedProducts,
+            'nbProducts' => $products->count(),
+            'category' => $category
+        ]);
     }
 
     //Show Discounted product
     public function discount()
     {
-        $products = Product::orderBy('created_at', 'desc')->where('published', true)->where('category_id', '!=', 'null')->where('status', 'solded')->paginate(6);
-        return view('products.index', compact('products'));
+        $products = Product::orderBy('created_at', 'desc')->where('published', true)->where('category_id', '!=', 'null')->where('status', 'solded');
+        $paginatedProducts = $products->paginate(6);
+        return view('products.index', [
+            'products' => $paginatedProducts,
+            'nbProducts' => $products->count(),
+        ]);
     }
 
     //Show function (single product)

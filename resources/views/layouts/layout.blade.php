@@ -25,18 +25,18 @@
                         </h1>
                     </div>
                     <ul class="nav-links">
-                        @foreach( \App\Models\Category::all() as $category)
-
-                            <li class="link {{ (request()->is('categorie/'.$category->id)) ? 'active' : '' }} gsap-fade-up">
-                                <a href={{'/categorie/' . $category->id}}>{{$category->name}}</a>
-                            </li>
-                        @endforeach
 
                         <li class="link discount gsap-fade-up">
                             <a href="{{route('products.discount')}}">
                                 {{ __('Soldes') }}
                             </a>
                         </li>
+                        @foreach( \App\Models\Category::all() as $category)
+
+                            <li class="link {{ (request()->is('categorie/'.$category->id)) ? 'active' : '' }} gsap-fade-up">
+                                <a href={{'/categorie/' . $category->id}}>{{$category->name}}</a>
+                            </li>
+                        @endforeach
                     </ul>
                     <div class="burger only-mobile">
                         <span class="bar"></span>

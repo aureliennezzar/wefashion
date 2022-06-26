@@ -12,7 +12,7 @@ class Picture extends Model
         'image',
         'product_id'
     ];
-
+    //PICTURE RELATIONS
     public function products()
     {
         return $this->hasMany(Product::class);

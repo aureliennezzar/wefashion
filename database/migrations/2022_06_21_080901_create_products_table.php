@@ -17,7 +17,6 @@ return new class extends Migration {
             $table->id();
             $table->string('name',100);
             $table->text('description');
-//            $table->string('image')->default('https://picsum.photos/400/600');
             $table->decimal('price', 8, 2);
             $table->enum('status', ['standard', 'solded']);
             $table->boolean('published')->default(false);
